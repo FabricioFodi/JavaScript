@@ -1,0 +1,1 @@
+Esta pasta (shiny-umbrella4) contém arquivos das primeiras aulas ee também algumas atividades que fiz por conta.
