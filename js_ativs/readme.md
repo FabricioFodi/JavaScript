@@ -1,0 +1,1 @@
+Esta pasta (js_ativs) refere-se à algumas atividades  soltas que fiz por conta.
