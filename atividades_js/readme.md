@@ -1,0 +1,1 @@
+Esta pasta (atividades_js) contém atividades do dia 03 de Setembro de 2024.
