@@ -1,0 +1,31 @@
+
+@keyframes slidein {
+    from {
+        transform: translateX(100vw) scale(2, 1);
+    }
+    
+    to {
+        transform: translateX(0) scale(1, 1);
+    }
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+ul li button {
+    margin: 6px;
+}
+
