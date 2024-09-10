@@ -1,0 +1,1 @@
+Esta pasta (ExercíciosJavaScript) refere-se as atividades do dia 02 de Setembro de 2024.
