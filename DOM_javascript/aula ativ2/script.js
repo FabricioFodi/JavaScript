@@ -20,6 +20,11 @@ Use appendChild() para adicionar novos itens à lista.
 Use removeChild() para remover itens.
 Alterar o estilo de um item pode ser feito diretamente via element.style ou usando classes com classList.add().
 */
+const elemento = document.querySelector('body');
+
+elemento.addEventListener('animationend', function() {
+    alert("shhh! \uD83E\uDD2B \uD83E\uDDCF");
+}); //shhh!
 
 
 document.getElementById('tarefa').addEventListener('keydown', function (event) {
@@ -27,8 +32,7 @@ document.getElementById('tarefa').addEventListener('keydown', function (event) {
         event.preventDefault();
         adicionarNaLista();
     }
-});
-//usa o Enter como se fosse o botão Adicionar
+}); //usa o Enter como se fosse o botão Adicionar
 
 
 function adicionarNaLista() {
@@ -39,6 +43,10 @@ function adicionarNaLista() {
     let btnConcluido = document.createElement('button');
     const uLista = document.getElementById('minhaLista');
     //criação de elementos e variaveis
+
+    btnConcluido.classList.add('btnconcluido');
+    btnRemover.classList.add('btnremover');
+    //estilização dos botões
 
     if (tarefa.trim() !== "") {
         btnConcluido.innerHTML = "Concluido"
@@ -53,15 +61,14 @@ function adicionarNaLista() {
     } else {
         alert("Por favor, insira uma tarefa.");
         console.log("Por favo, insira uma tarefa.");
-          // Mostra alerta se o input estiver vazio
+        // Mostra alerta se o input estiver vazio
     }
 
     document.getElementById('tarefa').value = '';
     //deixa o input vazio depois
 
-
     btnConcluido.addEventListener('click', function () {
-        novaLi.style.textDecoration = 'line-through';
+        novaLi.classList.toggle('completo');
     });
     //quando clica no botão concluido ele risca o texto
 

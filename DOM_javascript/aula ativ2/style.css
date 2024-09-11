@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @keyframes slidein {
     from {
@@ -7,6 +8,10 @@
     to {
         transform: translateX(0) scale(1, 1);
     }
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
 }
 
 html{
@@ -29,3 +34,37 @@ ul li button {
     margin: 6px;
 }
 
+#tarefa {
+    height: 22px;
+    width: 170px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 2px solid gainsboro;
+}
+
+.completo {
+    text-decoration: line-through;
+} /* quando clica no botão concluido ele alterna entre line-through ou não*/
+
+.btnAdd {
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    font-weight: 600;
+}
+
+.btnconcluido {
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(4, 207, 4, 0.849);
+    padding: 10px;
+    font-weight: 600;
+}
+
+.btnremover {
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255, 0, 0, 0.87);
+    padding: 10px;
+    font-weight: 600;
+}
