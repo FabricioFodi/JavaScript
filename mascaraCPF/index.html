@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascara de CPF</title>
+</head>
+<body>
+
+    <input type="text" autocomplete="off" maxlength="14" placeholder="Digite seu CPF" id="cpf">
+    <script>
+        let cpf = document.getElementById('cpf');
+        
+         cpf.addEventListener('keypress', () => {
+            let tamanhocpf = cpf.value.length;
+
+            if(tamanhocpf === 3 || tamanhocpf === 7){
+                cpf.value += '.'
+            }else if (tamanhocpf === 11){
+                cpf.value += '-'
+            }
+         });
+    </script>
+</body>
+</html>

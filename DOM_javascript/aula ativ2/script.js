@@ -1,25 +1,3 @@
-/*
-Atividade 2: To-Do List
-Objetivo: Criar uma página onde o usuário pode adicionar, remover e marcar como concluída uma lista de tarefas.
-
-Instruções:
-
-Crie um formulário com um input de texto onde o usuário pode digitar uma nova tarefa, e um botão "Adicionar".
-Assine o evento click do botão para adicionar uma nova tarefa à lista.
-Quando o botão for clicado:
-Capture o valor do input e adicione esse valor como um item da lista de tarefas.
-Cada item da lista deve ser criado dinamicamente no HTML (use createElement para criar novos elementos).
-Adicione um botão "Remover" ao lado de cada tarefa, que quando clicado, remova a tarefa da lista.
-Adicione um botão "Concluído" ao lado de cada tarefa, que quando clicado, altere o estilo da tarefa para indicar que está concluída 
-(por exemplo, usar text-decoration: line-through).
-As tarefas devem ser exibidas em uma lista ul ou ol que é preenchida dinamicamente.
-Use classes CSS para alterar o estilo dos itens "concluídos" e o botão "Remover".
-Dicas:
-
-Use appendChild() para adicionar novos itens à lista.
-Use removeChild() para remover itens.
-Alterar o estilo de um item pode ser feito diretamente via element.style ou usando classes com classList.add().
-*/
 const elemento = document.querySelector('body');
 
 elemento.addEventListener('animationend', function() {
@@ -49,7 +27,7 @@ function adicionarNaLista() {
     //estilização dos botões
 
     if (tarefa.trim() !== "") {
-        btnConcluido.innerHTML = "Concluido"
+        btnConcluido.innerHTML = "Concluido";
         btnRemover.textContent = "Remover";
         novaLi.textContent = tarefa;
         // adicionando conteúdo aos elementos criados com javascript
