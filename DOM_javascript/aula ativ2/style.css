@@ -68,3 +68,38 @@ ul li button {
     padding: 10px;
     font-weight: 600;
 }
+
+.ladoDireito {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 200px;
+    margin-top: -50px;
+    padding: 10px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.ladoDireito:hover {
+    opacity: 1;
+  }
+
+.meuparagrafo, .paraEsquerdo {
+    font-size: 44px;
+    text-align: center;
+}
+
+.ladoEsquerdo {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    width: 200px; 
+    margin-top: -50px;
+    padding: 10px;
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.ladoEsquerdo:hover {
+    opacity: 1;
+}

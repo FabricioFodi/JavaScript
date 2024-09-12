@@ -1,9 +1,8 @@
-const elemento = document.querySelector('body');
-
 elemento.addEventListener('animationend', function() {
     alert("shhh! \uD83E\uDD2B \uD83E\uDDCF");
 }); //shhh!
 
+const elemento = document.querySelector('body');
 
 document.getElementById('tarefa').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
