@@ -54,12 +54,12 @@ getCode(); //Retorna o codigoSeguro
 
 var createPet = function (nome) {
     //Função externa define uma variável chamada "nome"
-    // 'nome' é declarado, mas seu valor nunca é lido.
+    // 'nome' é declarado, mas seu valor nunca é lido.  
     return{
         setNome: function (nome) {
             //Função fechada define uma variável chamada "nome"
             nome = nome; //Como podemos acessar o "nome" que foi definido
             // pela função externa?
-        } ,
+        },
     };
 };

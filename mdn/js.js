@@ -4,10 +4,12 @@ console.log(browserType[browserType.length - 1]);
 console.log(browserType.indexOf("zilla"));
 console.log(browserType.indexOf("vanilla"));
 console.log(browserType.slice(2));
+
 var newDateObj = new Date("December 25, 1995");
 console.log(newDateObj);
 console.log(newDateObj.getMonth());
 console.log(newDateObj.getFullYear());
+
 function JSClock(){
     var tempo = new Date();
     var hora = tempo.getHours();
