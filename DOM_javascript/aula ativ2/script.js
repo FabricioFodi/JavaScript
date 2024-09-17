@@ -1,6 +1,6 @@
-elemento.addEventListener('animationend', function() {
-    alert("shhh! \uD83E\uDD2B \uD83E\uDDCF");
-}); //shhh!
+// elemento.addEventListener('animationend', function() {
+//     alert("shhh! \uD83E\uDD2B \uD83E\uDDCF");
+// }); //shhh!
 
 const elemento = document.querySelector('body');
 
