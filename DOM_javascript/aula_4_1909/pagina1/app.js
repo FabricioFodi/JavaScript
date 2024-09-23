@@ -70,7 +70,6 @@ function mostrarVagas() {
     }
 
     if (!temVagas) {
-        // Se não houver veículos, adiciona a linha de vazio
         tabelaHTML += `
             <tr>
                 <td>Vazio</td>
