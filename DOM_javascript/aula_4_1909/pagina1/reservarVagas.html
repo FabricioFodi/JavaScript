@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Vaga</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+        <h1 class="banner">Reserva de Vagas</h1>
+    </header>
+
+    <main>
+        <section class="formulario">
+            <div class="interface">
+                <div class="form">
+                    <input type="text" placeholder="Placa do Veículo" id="placaVeiculo" maxlength="7" />
+                    <input type="number" placeholder="Num. do apartamento" id="aptNum" />
+                    <input type="text" placeholder="Bloco do apartamento" id="blocoApt" maxlength="1" />
+                    <input type="number" placeholder="Num. da vaga" id="numVaga" />
+                    <!--Fim inputs-->
+                    <button onclick="ReservarVaga()" class="btn">Reservar Vaga</button>
+                    <button class="btn"><a href="../pagina2/cadastrarVeiculos.html">Página Cadastrar Veículos</a></button>
+                    <button onclick="mostrarVagas()" class="btn">Mostrar Tabela de Vagas</button>
+                    <!--Fim buttons-->
+                </div><!--Fim div form-->
+                <div id="tabelaVagas"></div>
+
+            </div><!--Fim div interface-->
+        </section><!--Fim section formulario-->
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
