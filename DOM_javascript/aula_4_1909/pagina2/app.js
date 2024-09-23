@@ -34,7 +34,7 @@ function cadastrarVeiculo() {
 
 function mostrarVeiculos() {
     const tabelaContainer = document.getElementById('tabelaVeiculos');
-    tabelaContainer.style.display = 'block';
+    tabelaContainer.style.display = tabelaContainer.style.display === 'block' ? 'none' : 'block';
 
     let tabelaHTML = `
         <table>    
@@ -46,11 +46,14 @@ function mostrarVeiculos() {
                 <th>Ações</th>
             </tr>`;
 
+    let temVeiculos = false;
+
     for (let i = 0; i < localStorage.length; i++) {
         const chave = localStorage.key(i);
 
         if (chave.startsWith('veiculo_')) {
             const veiculo = JSON.parse(localStorage.getItem(chave));
+            temVeiculos = true;
 
             tabelaHTML += `
                 <tr id="${chave}">
@@ -65,6 +68,19 @@ function mostrarVeiculos() {
                 </tr>`;
         }
     }
+
+    if (!temVeiculos) {
+        // Se não houver veículos, adiciona a linha de vazio
+        tabelaHTML += `
+            <tr>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+            </tr>`;
+    }
+
     tabelaHTML += '</table>';
     tabelaContainer.innerHTML = tabelaHTML;
 }
@@ -74,8 +90,8 @@ function editarVeiculo(chave) {
 
     document.getElementById('placaVeiculo').value = veiculo.placa;
     document.getElementById('proprietario').value = veiculo.proprietario;
-    document.getElementById('modeloVeic').value = veiculo.modelo;
-    document.getElementById('corDoVeic').value = veiculo.cor;
+    document.getElementById('modeloVeiculo').value = veiculo.modelo;
+    document.getElementById('corVeiculo').value = veiculo.cor;
 
     localStorage.removeItem(chave);
 }

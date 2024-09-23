@@ -34,7 +34,7 @@ function ReservarVaga() {
 
 function mostrarVagas() {
     const tabelaContainer = document.getElementById('tabelaVagas');
-    tabelaContainer.style.display = 'block'; // Exibe a tabela
+    tabelaContainer.style.display = tabelaContainer.style.display === 'block' ? 'none' : 'block';
 
     let tabelaHTML = `
         <table>
@@ -46,12 +46,15 @@ function mostrarVagas() {
                 <th>Ações</th>
             </tr>`;
 
+    let temVagas = false;
+    
     for (let i = 0; i < localStorage.length; i++) {
         const chave = localStorage.key(i);
 
         if (chave.startsWith('vaga_')) {
             const vaga = JSON.parse(localStorage.getItem(chave));
-
+            temVagas = true;
+            
             tabelaHTML += `
                 <tr id="${chave}">
                     <td>${vaga.placa}</td>
@@ -64,6 +67,18 @@ function mostrarVagas() {
                     </td>
                 </tr>`;
         }
+    }
+
+    if (!temVagas) {
+        // Se não houver veículos, adiciona a linha de vazio
+        tabelaHTML += `
+            <tr>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+                <td>Vazio</td>
+            </tr>`;
     }
 
     tabelaHTML += '</table>';

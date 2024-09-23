@@ -114,7 +114,7 @@ input[type="number"]::-ms-outer-spin-button {
 }
 
 table {
-    max-width: 550px;
+    max-width: 650px;
     margin-top: 20px;
     border-collapse: collapse;
     background-color: white;
