@@ -1,1 +1,1 @@
-Esta Pasta (DOM_Javascript) refere-se as atividades do dia 09 de Setembro de 2024.
+Esta Pasta (DOM_Javascript) refere-se as atividades do dia 09 de Setembro de 2024 em diante.
