@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="nome" id="nome_usuario"/>
+    <input type="text" placeholder="senha" id="senha_usuario">
+    <button onclick="validarUsuario()">Cadastar</button>
+    <button onclick="loginUsuario()">Login</button>
+
+    <script>
+        const nome = document.getElementById('nome_usuario');
+        const senha = document.getElementById('senha_usuario');
+
+        function validarUsuario(){
+
+            const usuario = {
+                nome: nome.value,
+                senha: senha.value
+            }
+
+            let regex = /^[a-zA-Z0-9]{6,}$/;
+            
+            (!usuario.nome || !usuario.senha) && alert('Preencha todos os campos') //o operador &&
+            !regex.test(senha.value) && alert('Senha deve conter no mínimo 6 caracteres') 
+
+            localStorage.setItem('usuário', JSON.stringify(usuario)); 
+            alert('Usuário cadastrado com sucesso');
+
+        }
+
+        function loginUsuario(){
+            
+        }
+    </script>
+</body>
+</html>
