@@ -21,7 +21,7 @@ botao.addEventListener('click', () => {
 });
 
 async function getWeatherData() {
-    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input.value)}&units=metric&appid=d37870889ac0283f2aaa23af2bbf8ef1`;
+    let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input.value)}&units=metric&appid=API_KEY`;
     if (!input.value) {
         alert('Digite uma cidade!');
     } else {
