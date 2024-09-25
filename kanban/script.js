@@ -1,4 +1,10 @@
 const colunas = document.querySelectorAll('.coluna');
+const lixeira = document.getElementById('iconRemove');
+
+document.getElementById('btnAdicionar').addEventListener('click', () => {
+    const coluna = document.querySelector('.coluna');
+    coluna.appendChild(criarNovaPosicao());
+})
 
 document.addEventListener('dragstart', (e) => {
     e.target.classList.add('dragging');
@@ -20,6 +26,15 @@ colunas.forEach((item) => {
         }
     })
 })
+
+function criarNovaPosicao(){
+    let div = document.createElement('div');
+    div.classList.add('item');
+    div.setAttribute('draggable', 'true');
+    div.textContent = 'Card novo';
+    return div;
+
+}
 
 function pegarNovaPosicao(coluna, posicaoY) {
     const cartao = coluna.querySelectorAll('.item:not(.dragging)');
