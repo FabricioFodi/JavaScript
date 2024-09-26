@@ -1,5 +1,4 @@
 const colunas = document.querySelectorAll('.coluna');
-const lixeira = document.getElementById('iconRemove');
 
 document.getElementById('btnAdicionar').addEventListener('click', () => {
     const coluna = document.querySelector('.coluna');
@@ -27,13 +26,34 @@ colunas.forEach((item) => {
     })
 })
 
+function adicionarIconeLixeira() {
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+        let lixeira = item.querySelector('.trash-icon');
+        if (lixeira) {
+            lixeira.remove();
+        } else {
+            lixeira = document.createElement('i');
+            lixeira.classList.add('fa-solid', 'fa-trash', 'trash-icon');
+            item.appendChild(lixeira);
+        };
+    });
+}
+document.getElementById('btnRemover').addEventListener('click', adicionarIconeLixeira);
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('trash-icon')) {
+        e.target.parentElement.remove();
+    }
+});
+
 function criarNovaPosicao(){
     let div = document.createElement('div');
     div.classList.add('item');
     div.setAttribute('draggable', 'true');
     div.textContent = 'Card novo';
     return div;
-
 }
 
 function pegarNovaPosicao(coluna, posicaoY) {

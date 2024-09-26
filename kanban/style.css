@@ -37,6 +37,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: grab;
+    position: relative;
 }
 
 .item:active {
@@ -50,4 +51,16 @@ body {
 
 .dragging {
     opacity: 0.6;
+}
+
+i {
+    color: #c42727; 
+}
+
+/* Estilo para o ícone de lixeira */
+.trash-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
 }
