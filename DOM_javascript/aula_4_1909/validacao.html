@@ -25,7 +25,7 @@
 
             let regex = /^[a-zA-Z0-9]{6,}$/;
             
-            (!usuario.nome || !usuario.senha) && alert('Preencha todos os campos') //o operador &&
+            (!usuario.nome || !usuario.senha) && alert('Preencha todos os campos') //o operador && só executa a segunda parte se a primeira for verdadeira
             !regex.test(senha.value) && alert('Senha deve conter no mínimo 6 caracteres') 
 
             localStorage.setItem('usuário', JSON.stringify(usuario)); 
