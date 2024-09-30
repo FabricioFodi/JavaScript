@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        @font-face {
+            font-family: 'Azonix';
+            src: url('/LocalFonte/Azonix.otf') format('opentype');
+            font-weight: bold;
+        }
+
+        * {
+            font-family: 'Azonix', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/LocalFonte/foto1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .titulo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        h1 {
+            text-align: center;
+            font-size: 60px;
+            align-items: center;
+        }
+
+        span {
+            color: hsla(0, 0%, 0%, 0.2);
+            background-clip: text;
+            background-image: linear-gradient(90deg, rgb(82, 82, 248), purple, rgb(255, 0, 0));
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: rgb(121, 120, 120);
+            text-align: center;
+        }
+
+        /* @media screen {
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="titulo">
+        <h1>THE WORLD AS  <span>YOU'VE</span> NEVER SEEN IT</h1>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <p>Fabricio Fodi © 2024 - All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

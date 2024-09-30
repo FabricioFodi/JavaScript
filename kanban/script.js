@@ -6,12 +6,14 @@ document.getElementById('btnAdicionar').addEventListener('click', () => {
 })
 
 document.addEventListener('dragstart', (e) => {
-    e.target.classList.add('dragging');
-})
+     (e.target.classList.contains('item')) && e.target.classList.add('dragging');
+    
+});
 
 document.addEventListener('dragend', (e) => {
-    e.target.classList.remove('dragging');
-})
+    (e.target.classList.contains('item')) && e.target.classList.remove('dragging');
+});
+
 
 colunas.forEach((item) => {
     item.addEventListener('dragover', (e) => {
@@ -26,21 +28,26 @@ colunas.forEach((item) => {
     })
 })
 
-function adicionarIconeLixeira() {
+function adicionarIconeLixeiraEEditar() {
     const items = document.querySelectorAll('.item');
 
     items.forEach(item => {
         let lixeira = item.querySelector('.trash-icon');
-        if (lixeira) {
+        let editar = item.querySelector('.edit-icon');
+        if (lixeira && editar) {
             lixeira.remove();
+            editar.remove();  
         } else {
             lixeira = document.createElement('i');
             lixeira.classList.add('fa-solid', 'fa-trash', 'trash-icon');
             item.appendChild(lixeira);
+            editar = document.createElement('i');
+            editar.classList.add('fa-solid', 'fa-edit', 'edit-icon');
+            item.appendChild(editar);
         };
     });
 }
-document.getElementById('btnRemover').addEventListener('click', adicionarIconeLixeira);
+document.getElementById('btnRemover').addEventListener('click', adicionarIconeLixeiraEEditar);
 
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('trash-icon')) {
