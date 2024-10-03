@@ -2,16 +2,14 @@ const cadastrar = document.getElementById('cadastrarTarefas');
 const consultar = document.getElementById('consultarTarefas');
 const atualizar = document.getElementById('atualizarTarefas');
 const deletar = document.getElementById('deletarTarefas');
-const logOriginal = console.log;
 
 atualizar.addEventListener('click', () => {
     const tarefa = {
-        _id: '66fbdf4cfe837603e816db59',
         id: 1,
         titulo: 'Estudar JS dois',
         decricao: 'Descrição da segunda tarefa'
     };
-    fetch('https://crudcrud.com/api/a94488c22fb64d13bbab01567f215649/todos/66fbe284fe837603e816db65', {
+    fetch('https://crudcrud.com/api/cfef799bdd594901b41cbdc90f774c3e/todos/66fc7c9cfe837603e816dc62', {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -27,14 +25,13 @@ atualizar.addEventListener('click', () => {
     });
 });
 
-
 document.getElementById('cadastrarTarefas').addEventListener('click', () => {
     const tarefa = {
         id: 1,
         titulo: 'Estudar JS',
         decricao: 'Descrição da tarefa'
     };
-    fetch('https://crudcrud.com/api/a94488c22fb64d13bbab01567f215649/todos', {
+    fetch('https://crudcrud.com/api/cfef799bdd594901b41cbdc90f774c3e/todos', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -52,7 +49,7 @@ document.getElementById('cadastrarTarefas').addEventListener('click', () => {
 
 
 consultar.addEventListener('click', () => {
-    fetch('https://crudcrud.com/api/a94488c22fb64d13bbab01567f215649/todos', 
+    fetch('https://crudcrud.com/api/cfef799bdd594901b41cbdc90f774c3e/todos', 
     {
         method: 'GET',
     }
@@ -66,12 +63,12 @@ consultar.addEventListener('click', () => {
 
 deletar.addEventListener('click', () => {
     const tarefa = {
-        _id: '66fb2c6dfe837603e816d9e1',
+        _id: '66fc7c9cfe837603e816dc62',
         id: 1,
         titulo: 'Estudar JS',
         decricao: 'Descrição da tarefa'
     };
-    fetch('https://crudcrud.com/api/a94488c22fb64d13bbab01567f215649/todos/66fbe284fe837603e816db65', {
+    fetch('https://crudcrud.com/api/cfef799bdd594901b41cbdc90f774c3e/todos/66fc7c9cfe837603e816dc62', {
         method: 'DELETE',
         headers: {
             'content-type': 'application/json'
