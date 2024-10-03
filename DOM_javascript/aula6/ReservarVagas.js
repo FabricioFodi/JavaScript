@@ -14,7 +14,7 @@ botaoCadastrar.addEventListener('click', () => {
         blocoApt: blocoApt.value,
         numVaga: numVaga.value
     };
-    fetch('https://crudcrud.com/api/59d6e1708bf8445a9ad0736a5ba0ccfc/vagas',{
+    fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -24,7 +24,7 @@ botaoCadastrar.addEventListener('click', () => {
         console.log(Response);
         return Response.json();
     }).then((Response) => {
-        console.log(Response);
+        console.log('Vaga Criada:', Response);
     }).catch((error) => {
         console.error(error);
     });
@@ -40,7 +40,7 @@ botaoConsultar.addEventListener('click', () => {
     const tabelaContainer = document.getElementById('tabelaVagas');
     tabelaContainer.style.display = tabelaContainer.style.display === 'block' ? 'none' : 'block';
 
-    fetch('https://crudcrud.com/api/59d6e1708bf8445a9ad0736a5ba0ccfc/vagas', 
+    fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas', 
     {
         method: 'GET',
     }
@@ -93,7 +93,7 @@ botaoConsultar.addEventListener('click', () => {
 mostrarVagas();
 
 function removerVaga(chave) {
-    fetch(`https://crudcrud.com/api/59d6e1708bf8445a9ad0736a5ba0ccfc/vagas/${chave}`, {
+    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
         method: 'DELETE'
     }).then((Response) => {
         console.log(Response);
@@ -104,15 +104,27 @@ function removerVaga(chave) {
 }
 
 function editarVaga(chave) {
-    fetch(`https://crudcrud.com/api/59d6e1708bf8445a9ad0736a5ba0ccfc/vagas/${chave}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(vaga)
-    }).then((Response) => {
-        console.log(Response);
-    }).catch((error) => {
+    // Fazer um GET para obter os dados da vaga correspondente
+    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
+        method: 'GET'
+    }).then(response => response.json())
+    .then(vaga => {
+        // Preencher os campos de edição com os dados obtidos
+        document.getElementById('placaVeiculo').value = vaga.placa;
+        document.getElementById('aptNum').value = vaga.aptNum;
+        document.getElementById('blocoApt').value = vaga.blocoApt;
+        document.getElementById('numVaga').value = vaga.numVaga;
+
+        // Armazenar a chave da vaga que está sendo editada no botão de cadastro
+        document.getElementById('reservarVaga').setAttribute('data-chave', chave);
+        return fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
+            method: 'DELETE'
+        });
+    })
+    .then(response => {
+        console.log('Vaga deletada:', response);
+        mostrarVagas();
+    }).catch(error => {
         console.error(error);
     });
 }
