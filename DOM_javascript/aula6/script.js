@@ -3,6 +3,18 @@ const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
 const formCadastro = document.getElementById('cadastro');
 const formLogin = document.getElementById('loginUser');
+const data = document.getElementById('data');
+
+data.addEventListener('keypress', (event) => {
+    if (!/[0-9]/.test(event.key)) {
+        event.preventDefault();
+    }
+    let tamanhodata = data.value.length;
+
+    if(tamanhodata === 2 || tamanhodata === 5){
+        data.value += '/';
+    }
+});
 
 registerBtn.addEventListener('click', () => {
     container.classList.add("active");
@@ -12,10 +24,13 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
+
+
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault();
     const usuario = {
         nome: formCadastro.elements['nome'].value,
+        nascimento: formCadastro.elements['nascimento'].value,
         email: formCadastro.elements['email'].value,
         senha: formCadastro.elements['senha'].value
     };

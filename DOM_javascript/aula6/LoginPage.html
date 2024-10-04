@@ -13,8 +13,9 @@
         <div class="form-container sign-up">
             <form id="cadastro">
                 <h1>Criar uma conta</h1>
-                <span>ou use seu email para registrar-se</span>
-                <input type="text" placeholder="Nome" name="nome">
+                <span>Use seu email para registrar-se</span>
+                <input type="text" placeholder="Nome Completo" name="nome">
+                <input type="text" maxlength="10" id="data" placeholder="DD/MM/AAAA" name="nascimento">
                 <input type="email" placeholder="Email" name="email">
                 <input type="password" placeholder="Senha" name="senha">
                 <button id="fazerCadastro">Cadastrar</button>
@@ -23,7 +24,7 @@
         <div class="form-container sign-in">
             <form id="loginUser">
                 <h1>Fazer Log in</h1>
-                <span>ou use seu email e senha</span>
+                <span>Use seu email e senha</span>
                 <input type="email" placeholder="Email" name="email">
                 <input type="password" placeholder="Senha" name="senha">
                 <a href="#" class="reg">Esqueceu sua senha?</a>
