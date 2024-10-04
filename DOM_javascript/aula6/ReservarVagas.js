@@ -6,6 +6,8 @@ const numVaga = document.getElementById('numVaga');
 const botaoCadastrar = document.getElementById('reservarVaga');
 const botaoConsultar = document.getElementById('mostrarVagas');
 
+localStorage.getItem('isLogged') === 'true' ? null : window.location.href = './LoginPage.html';
+
 botaoCadastrar.addEventListener('click', () => {
     const vaga = {
         id: 1,
@@ -14,7 +16,7 @@ botaoCadastrar.addEventListener('click', () => {
         blocoApt: blocoApt.value,
         numVaga: numVaga.value
     };
-    fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas',{
+    fetch('https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/vagas',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -40,7 +42,7 @@ botaoConsultar.addEventListener('click', () => {
     const tabelaContainer = document.getElementById('tabelaVagas');
     tabelaContainer.style.display = tabelaContainer.style.display === 'block' ? 'none' : 'block';
 
-    fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas', 
+    fetch('https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/vagas', 
     {
         method: 'GET',
     }
@@ -93,7 +95,7 @@ botaoConsultar.addEventListener('click', () => {
 mostrarVagas();
 
 function removerVaga(chave) {
-    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
+    fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/vagas/${chave}`, {
         method: 'DELETE'
     }).then((Response) => {
         console.log(Response);
@@ -105,7 +107,7 @@ function removerVaga(chave) {
 
 function editarVaga(chave) {
     // Fazer um GET para obter os dados da vaga correspondente
-    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
+    fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/vagas/${chave}`, {
         method: 'GET'
     }).then(response => response.json())
     .then(vaga => {
@@ -117,7 +119,7 @@ function editarVaga(chave) {
 
         // Armazenar a chave da vaga que está sendo editada no botão de cadastro
         document.getElementById('reservarVaga').setAttribute('data-chave', chave);
-        return fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/vagas/${chave}`, {
+        return fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/vagas/${chave}`, {
             method: 'DELETE'
         });
     })

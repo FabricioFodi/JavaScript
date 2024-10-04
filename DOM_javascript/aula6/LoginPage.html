@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleLoginPage.css">
+    <title>Login Screen</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form id="cadastro">
+                <h1>Criar uma conta</h1>
+                <span>ou use seu email para registrar-se</span>
+                <input type="text" placeholder="Nome" name="nome">
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Senha" name="senha">
+                <button id="fazerCadastro">Cadastrar</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form id="loginUser">
+                <h1>Fazer Log in</h1>
+                <span>ou use seu email e senha</span>
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Senha" name="senha">
+                <a href="#" class="reg">Esqueceu sua senha?</a>
+                <button id="fazerLogin">
+                    <a class="lo">Log in</a>
+                </button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Bem-Vindo de volta!</h1>
+                    <p>Insira seus dados para usar todos os recursos do site</p>
+                    <button class="hidden" id="login">Log in</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Olá, Colega!</h1>
+                    <p>Insira seus dados para usar todos os recursos do site</p>
+                    <button class="hidden" id="register">Cadastre-se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

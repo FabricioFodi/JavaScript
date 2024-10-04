@@ -6,6 +6,8 @@ const cor = document.getElementById('corVeiculo');
 const botaoCadastrar = document.getElementById('cadastrarVeiculo');
 const botaoConsultar = document.getElementById('mostrarVeiculos');
 
+localStorage.getItem('isLogged') === 'true' ? null : window.location.href = './LoginPage.html';
+
 botaoCadastrar.addEventListener('click', () => {
     const veiculo = {
         id: 1,
@@ -14,7 +16,7 @@ botaoCadastrar.addEventListener('click', () => {
         modelo: modelo.value,
         cor: cor.value
     };
-    fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/veiculos',{
+    fetch('https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/veiculos',{
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -40,7 +42,7 @@ function mostrarVeiculos() {
         const tabelaContainer = document.getElementById('tabelaVeiculos');
         tabelaContainer.style.display = tabelaContainer.style.display === 'block' ? 'none' : 'block';
 
-        fetch('https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/veiculos', {
+        fetch('https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/veiculos', {
             method: 'GET'
         }).then((Response) => {
             return Response.json();
@@ -92,11 +94,10 @@ function mostrarVeiculos() {
 mostrarVeiculos();
 
 function deletarVeiculo(chave) {
-    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/veiculos/${chave}`, {
+    fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/veiculos/${chave}`, {
         method: 'DELETE'
     }).then((Response) => {
         console.log(Response);
-        return Response.json();
     }).then((Response) => {
         console.log('Veículo Deletado:', Response);
     }).catch((error) => {
@@ -105,7 +106,7 @@ function deletarVeiculo(chave) {
 }
 
 function editarVeiculo(chave) {
-    fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/veiculos/${chave}`, {
+    fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/veiculos/${chave}`, {
         method: 'GET'
     }).then(Response => Response.json())
     .then(veiculo => {
@@ -115,7 +116,7 @@ function editarVeiculo(chave) {
         document.getElementById('corVeiculo').value = veiculo.cor;
 
         document.getElementById('cadastrarVeiculo').setAttribute('data-chave', chave);
-        return fetch(`https://crudcrud.com/api/9c7cbbb791f04de0b39244876f0fd398/veiculos/${chave}`, {
+        return fetch(`https://crudcrud.com/api/bb70474cbf7748c9b15927e9e5e040a4/veiculos/${chave}`, {
             method: 'DELETE'
         });
     }).then(Response => {
