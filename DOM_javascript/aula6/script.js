@@ -5,16 +5,43 @@ const formCadastro = document.getElementById('cadastro');
 const formLogin = document.getElementById('loginUser');
 const data = document.getElementById('data');
 
-data.addEventListener('keypress', (event) => {
-    if (!/[0-9]/.test(event.key)) {
-        event.preventDefault();
-    }
-    let tamanhodata = data.value.length;
+// Função para formatar a data a cada alteração
+data.addEventListener('input', () => {
+    let value = data.value.replace(/\D/g, ''); // Remove tudo que não for número
+    let formattedValue = '';
 
-    if(tamanhodata === 2 || tamanhodata === 5){
-        data.value += '/';
+    if (value.length > 0) {
+        formattedValue = value.substring(0, 2); // Dia
+    }
+    if (value.length >= 3) {
+        formattedValue += '/' + value.substring(2, 4); // Mês
+    }
+    if (value.length >= 5) {
+        formattedValue += '/' + value.substring(4, 8); // Ano
+    }
+
+    data.value = formattedValue;
+});
+
+// Impedir que as barras '/' sejam apagadas diretamente
+data.addEventListener('keydown', (event) => {
+    let position = data.selectionStart;
+
+    // Verifica se o usuário está tentando apagar a barra '/' com Backspace ou Delete
+    if ((event.key === 'Backspace' && data.value[position - 1] === '/') ||
+        (event.key === 'Delete' && data.value[position] === '/')) {
+        event.preventDefault();
+
+        // Mover o cursor para antes ou depois da barra ao tentar apagar
+        if (event.key === 'Backspace') {
+            data.setSelectionRange(position - 1, position - 1);
+        } else if (event.key === 'Delete') {
+            data.setSelectionRange(position + 1, position + 1);
+        }
     }
 });
+
+
 
 registerBtn.addEventListener('click', () => {
     container.classList.add("active");
