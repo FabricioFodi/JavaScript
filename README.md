@@ -1,2 +1,2 @@
 # Atividades Javascript 
-Todas as atividades de javascript estão dentro desta pasta 
+(quase) Todas as atividades de javascript estão dentro desta pasta 
